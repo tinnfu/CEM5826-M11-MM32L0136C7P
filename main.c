@@ -15,15 +15,16 @@
 int snprintf(char *str, size_t size, const char *format, ...);
 #endif
 
-void clear_screen();
+void clearScreen();
 void process();
-int onRead(uint8_t c);
-int onWrite(uint8_t *c);
+void decode(uint8_t c);
 
 typedef enum {
-    BUF_RX_AGAIN,   // need more char
-    BUF_RX_LAST,    // need last char
-    BUF_RX_COMPLETE // message complete
+    BUF_RX_AGAIN,       // need more char
+    BUF_RX_LAST_2,      // need last 2 char
+    BUF_RX_LAST_1,      // need last 1 char
+    BUF_RX_COMPLETE,    // message complete
+    BUF_RX_ABORT        // rx message error, need reflush buffer
 } BufState;
 typedef struct {
     char data[32];
@@ -71,10 +72,10 @@ void displayNum(float num, SIZE sz)
         if (num != num1) {
             if (strlen(tmp) < (sz-1)) {
                 snprintf(buf, sizeof(buf), "-%s", tmp);
-								pos += 1;
+				pos += 1;
             } else {
                 sprintf(buf, "nA");
-								pos = -1;
+				pos = -1;
             }
         } else {
             memcpy(buf, tmp, sizeof(buf));
@@ -111,7 +112,7 @@ void process()
 
     token = strtok((char *)gBuf.data, " ,=");
     while (token != NULL) {
-        if (strcmp(token, "v") == 0) {
+        if (strcmp(token, "v") == 0 || strcmp(token, "vv") == 0) {
             token = strtok(NULL, " ,=");
             v = atof(token);
         } else if (strcmp(token, "str") == 0) {
@@ -133,45 +134,40 @@ void process()
   * @param  none
   * @retval 0 for rx complete, else need more char
   *********************************************************************************************************************/
-int onRead(uint8_t c)
+void decode(uint8_t c)
 {
-    int ret = 1;
-
     // v=**, str=**\r\n
     gBuf.data[gBuf.len++] = c;
     if (gBuf.len == sizeof(gBuf.data)) {
+        gBuf.state = BUF_RX_ABORT;
         goto end;
     }
 
     if (c == '\r') {
-        gBuf.state = BUF_RX_LAST;
+        if (gBuf.state == BUF_RX_LAST_1) {
+            gBuf.state = BUF_RX_COMPLETE;
+            goto end;
+        }
+        gBuf.state = BUF_RX_LAST_2;
         goto end;
     }
 
-    if (c == '\n' && gBuf.state == BUF_RX_LAST) {
-        gBuf.state = BUF_RX_COMPLETE;
-        ret = 0;
+    if (c == '\n' && gBuf.state == BUF_RX_LAST_2) {
+        gBuf.state = BUF_RX_LAST_1;
         goto end;
     }
 
     gBuf.state = BUF_RX_AGAIN;
 
 end:
-    if (ret == 0) {
-        int i = 3;
-        while (i--) {
-            PLATFORM_LED_Toggle(LED2);
-            PLATFORM_DelayMS(200);
-            PLATFORM_LED_Toggle(LED2);
-            PLATFORM_DelayMS(200);
-        }
-    }
-    return ret;
-}
+    if (gBuf.state == BUF_RX_COMPLETE) {
+        PLATFORM_LED_Toggle(LED2);
+        PLATFORM_DelayMS(300);
 
-int onWrite(uint8_t *c)
-{
-    return 0;
+        process();
+    } else if (gBuf.state == BUF_RX_ABORT) {
+        memset((void *)&gBuf, 0, sizeof(gBuf));
+    }
 }
 
 /***********************************************************************************************************************
@@ -186,21 +182,11 @@ int main(void)
     SLCD_Configure();
     UART_Configure(115200);
 
-    UART_OnRead = onRead;
-    UART_OnWrite = onWrite;
-
-    UART_RxData_Interrupt_Enable();
-    UART_TxData_Interrupt_Enable();
-
     while (1)
     {
-        if (gBuf.state == BUF_RX_COMPLETE) {
-            process();
-            UART_RxData_Interrupt_Enable();
-        } else {
-            PLATFORM_DelayMS(200);
-            PLATFORM_LED_Toggle(LED1);
-            PLATFORM_DelayMS(200);
+        if (SET == UART_GetFlagStatus(UART1, UART_FLAG_RXAVL))
+        {
+            decode(UART_ReceiveData(UART1));
         }
     }
 }

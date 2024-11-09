@@ -99,34 +99,7 @@ void UART_Configure(uint32_t Baudrate)
     GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    NVIC_InitStruct.NVIC_IRQChannel = UART1_IRQn;
-    NVIC_InitStruct.NVIC_IRQChannelPriority = 0x01;
-    NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStruct);
-
     UART_Cmd(UART1, ENABLE);
-}
-
-/***********************************************************************************************************************
-  * @brief
-  * @note   none
-  * @param  none
-  * @retval none
-  *********************************************************************************************************************/
-void UART_RxData_Interrupt_Enable()
-{
-    UART_ITConfig(UART1, UART_IT_RX, ENABLE);
-}
-
-/***********************************************************************************************************************
-  * @brief
-  * @note   none
-  * @param  none
-  * @retval none
-  *********************************************************************************************************************/
-void UART_TxData_Interrupt_Enable()
-{
-    UART_ITConfig(UART1, UART_IT_TX, ENABLE);
 }
 
 /**

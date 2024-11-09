@@ -118,41 +118,6 @@ void SysTick_Handler(void)
     }
 }
 
-/***********************************************************************************************************************
-  * @brief  This function handles UART1 Handler
-  * @note   none
-  * @param  none
-  * @retval none
-  *********************************************************************************************************************/
-void UART1_IRQHandler(void)
-{
-    uint8_t RxData = 0;
-    uint8_t TxData = 0;
-
-    // v=**，str=**\r\n
-    if (RESET != UART_GetITStatus(UART1, UART_IT_RX))
-    {
-        RxData = UART_ReceiveData(UART1);
-
-        UART_ClearITPendingBit(UART1, UART_IT_RX);
-
-        if (UART_OnRead(RxData) == 0) {
-          UART_ITConfig(UART1, UART_IT_RX, DISABLE);
-        }
-    }
-
-    if (RESET != UART_GetITStatus(UART1, UART_IT_TX))
-    {
-        UART_ClearITPendingBit(UART1, UART_IT_TX);
-
-        if (UART_OnWrite(&TxData) == 0) {
-          UART_ITConfig(UART1, UART_IT_TX, DISABLE);
-        } else {
-          UART_SendData(UART1, TxData);
-        }
-    }
-}
-
 /**
   * @}
   */
