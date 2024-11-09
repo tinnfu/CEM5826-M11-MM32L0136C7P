@@ -1,0 +1,14 @@
+build-idx:
+  generated-by: csolution version 2.6.0
+  csolution: UART_Interrupt.csolution.yml
+  tmpdir: tmp
+  cprojects:
+    - cproject: UART_Interrupt.cproject.yml
+  cbuilds:
+    - cbuild: UART_Interrupt+CEM5826M11.cbuild.yml
+      project: UART_Interrupt
+      configuration: +CEM5826M11
+      messages:
+        info:
+          - UART_Interrupt.cbuild-pack.yml - file is already up-to-date
+          - UART_Interrupt+CEM5826M11.cbuild.yml - file is already up-to-date
