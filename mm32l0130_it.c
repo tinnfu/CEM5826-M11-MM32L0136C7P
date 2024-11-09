@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-    @file    uart.c
+    @file    mm32l0130_it.c
     @author  FAE Team
     @date    28-Feb-2023
     @brief   THIS FILE PROVIDES ALL THE SYSTEM FUNCTIONS.
@@ -27,13 +27,11 @@
   *********************************************************************************************************************/
 
 /* Define to prevent recursive inclusion */
-#define _UART_C_
+#define _MM32L0130_IT_C_
 
 /* Files include */
-#include <stdio.h>
-#include <string.h>
 #include "platform.h"
-#include "uart.h"
+#include "mm32l0130_it.h"
 
 /**
   * @addtogroup MM32L0130_LibSamples
@@ -46,7 +44,7 @@
   */
 
 /**
-  * @addtogroup UART_Interrupt
+  * @addtogroup UART_Polling
   * @{
   */
 
@@ -61,44 +59,61 @@
 /* Private functions **************************************************************************************************/
 
 /***********************************************************************************************************************
-  * @brief
+  * @brief  This function handles NMI exception
   * @note   none
   * @param  none
   * @retval none
   *********************************************************************************************************************/
-void UART_Configure(uint32_t Baudrate)
+void NMI_Handler(void)
 {
-    GPIO_InitTypeDef GPIO_InitStruct;
-    UART_InitTypeDef UART_InitStruct;
+}
 
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_UART1, ENABLE);
+/***********************************************************************************************************************
+  * @brief  This function handles Hard Fault exception
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void HardFault_Handler(void)
+{
+    /* Go to infinite loop when Hard Fault exception occurs */
+    while (1)
+    {
+    }
+}
 
-    UART_StructInit(&UART_InitStruct);
-    UART_InitStruct.BaudRate      = Baudrate;
-    UART_InitStruct.WordLength    = UART_WordLength_8b;
-    UART_InitStruct.StopBits      = UART_StopBits_1;
-    UART_InitStruct.Parity        = UART_Parity_No;
-    UART_InitStruct.HWFlowControl = UART_HWFlowControl_None;
-    UART_InitStruct.Mode          = UART_Mode_Rx | UART_Mode_Tx;
-    UART_Init(UART1, &UART_InitStruct);
+/***********************************************************************************************************************
+  * @brief  This function handles SVCall exception
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void SVC_Handler(void)
+{
+}
 
-    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+/***********************************************************************************************************************
+  * @brief  This function handles PendSVC exception
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void PendSV_Handler(void)
+{
+}
 
-    GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_1);
-    GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_1);
-
-    GPIO_StructInit(&GPIO_InitStruct);
-    GPIO_InitStruct.GPIO_Pin   = GPIO_Pin_9;
-    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_High;
-    GPIO_InitStruct.GPIO_Mode  = GPIO_Mode_AF_PP;
-    GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    GPIO_StructInit(&GPIO_InitStruct);
-    GPIO_InitStruct.GPIO_Pin  = GPIO_Pin_10;
-    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
-    GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    UART_Cmd(UART1, ENABLE);
+/***********************************************************************************************************************
+  * @brief  This function handles SysTick Handler
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void SysTick_Handler(void)
+{
+    if (0 != PLATFORM_DelayTick)
+    {
+        PLATFORM_DelayTick--;
+    }
 }
 
 /**

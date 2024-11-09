@@ -42,9 +42,6 @@ extern "C" {
 /* Files include */
 #include "hal_conf.h"
 
-typedef int (*OnReadCallback)(uint8_t c);
-typedef int (*OnWriteCallback)(uint8_t *c);
-
 /* Exported constants
  * *************************************************************************************************/
 
@@ -53,19 +50,10 @@ typedef int (*OnWriteCallback)(uint8_t *c);
 
 /* Exported variables
  * *************************************************************************************************/
-#undef EXTERN
-
-#ifdef _UART_C_
-#define EXTERN
-#else
-#define EXTERN extern
-#endif
-
-EXTERN volatile OnReadCallback UART_OnRead;
-EXTERN volatile OnWriteCallback UART_OnWrite;
 
 /* Exported functions
  * *************************************************************************************************/
+void UART_Configure(uint32_t Baudrate);
 
 #ifdef __cplusplus
 }

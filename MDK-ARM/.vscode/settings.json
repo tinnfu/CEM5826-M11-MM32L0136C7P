@@ -1,0 +1,5 @@
+{
+    "clangd.arguments": [
+        "--compile-commands-dir=c:\\Users\\caft\\Desktop\\mm32\\test\\CEM5826-M11\\MDK-ARM\\out\\CEM5826-M11\\CEM5826M11"
+    ]
+}

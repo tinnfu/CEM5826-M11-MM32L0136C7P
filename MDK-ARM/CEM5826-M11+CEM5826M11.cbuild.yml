@@ -1,0 +1,142 @@
+build:
+  generated-by: csolution version 2.6.0
+  solution: CEM5826-M11.csolution.yml
+  project: CEM5826-M11.cproject.yml
+  context: CEM5826-M11+CEM5826M11
+  compiler: AC6
+  device: MindMotion::MM32L0136C7P
+  device-pack: MindMotion::MM32L0130_DFP@1.1.2
+  processor:
+    fpu: off
+    core: Cortex-M0
+  packs:
+    - pack: MindMotion::MM32L0130_DFP@1.1.2
+      path: ${CMSIS_PACK_ROOT}/MindMotion/MM32L0130_DFP/1.1.2
+  optimize: debug
+  debug: on
+  misc:
+    C:
+      - -std=c99
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wno-packed
+      - -Wno-missing-variable-declarations
+      - -Wno-missing-prototypes
+      - -Wno-missing-noreturn
+      - -Wno-sign-conversion
+      - -Wno-nonportable-include-path
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    CPP:
+      - -xc++
+      - -std=c++11
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wno-packed
+      - -Wno-missing-variable-declarations
+      - -Wno-missing-prototypes
+      - -Wno-missing-noreturn
+      - -Wno-sign-conversion
+      - -Wno-nonportable-include-path
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    Link:
+      - --library_type=microlib
+      - --map
+      - --load_addr_map_info
+      - --xref
+      - --callgraph
+      - --symbols
+      - --info sizes
+      - --info totals
+      - --info unused
+      - --info veneers
+      - --strict
+      - --summary_stderr
+      - --info summarysizes
+  define:
+    - USE_STDPERIPH_DRIVER
+    - __MICROLIB
+    - MM32L0136C7P
+  define-asm:
+    - __MICROLIB
+    - MM32L0136C7P
+  add-path:
+    - ..
+    - ../../Device/CMSIS/Core/Include
+    - ../../Device/MM32L0130/HAL_Lib/Inc
+    - ../../Device/MM32L0130/Include
+    - ${CMSIS_PACK_ROOT}/MindMotion/MM32L0130_DFP/1.1.2/Device/MM32L0130
+  add-path-asm:
+    - ${CMSIS_PACK_ROOT}/MindMotion/MM32L0130_DFP/1.1.2/Device/MM32L0130
+  output-dirs:
+    intdir: tmp
+    outdir: out/CEM5826-M11/CEM5826M11
+    rtedir: RTE
+  output:
+    - type: elf
+      file: CEM5826-M11.axf
+  linker:
+    script: CEM5826-M11_CEM5826M11.sct
+  groups:
+    - group: APP
+      files:
+        - file: ../main.c
+          category: sourceC
+        - file: ../platform.c
+          category: sourceC
+        - file: ../slcd.c
+          category: sourceC
+        - file: ../uart.c
+          category: sourceC
+    - group: HAL_LIB
+      files:
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_flash.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_lpuart.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_misc.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_rtc.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_slcd.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_syscfg.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_tim.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_uart.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_rcc.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_pwr.c
+          category: sourceC
+    - group: STARTUP
+      files:
+        - file: ../../Device/MM32L0130/Source/system_mm32l0130.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/Source/KEIL_StartAsm/startup_mm32l0130_keil.s
+          category: sourceAsm
+          misc:
+            ASM:
+              - -masm=auto
+  licenses:
+    - license: <unknown>
+      packs:
+        - pack: MindMotion::MM32L0130_DFP@1.1.2

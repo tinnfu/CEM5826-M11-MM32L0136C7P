@@ -1,0 +1,14 @@
+build-idx:
+  generated-by: csolution version 2.6.0
+  csolution: CEM5826-M11.csolution.yml
+  tmpdir: tmp
+  cprojects:
+    - cproject: CEM5826-M11.cproject.yml
+  cbuilds:
+    - cbuild: CEM5826-M11+CEM5826M11.cbuild.yml
+      project: CEM5826-M11
+      configuration: +CEM5826M11
+      messages:
+        info:
+          - CEM5826-M11.cbuild-pack.yml - file is already up-to-date
+          - CEM5826-M11+CEM5826M11.cbuild.yml - file is already up-to-date

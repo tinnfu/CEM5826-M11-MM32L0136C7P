@@ -56,6 +56,10 @@ extern "C" {
 
 /* Exported functions
  * *************************************************************************************************/
+void SLCD_Clear(uint8_t Mode);
+void SLCD_DisplayNumber1(uint8_t Index, char ch, uint8_t Point);
+void SLCD_DisplayNumber2(uint8_t Index, char ch, uint8_t Point);
+void SLCD_Configure(void);
 
 #ifdef __cplusplus
 }

@@ -14,8 +14,8 @@
 int snprintf(char *str, size_t size, const char *format, ...);
 #endif
 
-void clearScreen();
-void process();
+void clearScreen(void);
+void process(void);
 void decode(uint8_t c);
 
 typedef enum {
@@ -31,7 +31,7 @@ typedef struct {
 } Buf;
 volatile Buf gBuf = {0};
 
-void clearScreen()
+void clearScreen(void)
 {
     SLCD_Clear(1);
     SLCD_Clear(0);
@@ -97,7 +97,7 @@ void displayNum(float num, SIZE sz)
     }
 }
 
-void process()
+void process(void)
 {
     clearScreen();
 

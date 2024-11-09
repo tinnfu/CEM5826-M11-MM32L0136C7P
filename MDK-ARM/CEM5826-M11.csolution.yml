@@ -1,0 +1,10 @@
+solution:
+  created-by: uv2csolution@1.5.0
+  created-for: CMSIS-Toolbox@2.4.0
+  compiler: AC6
+  target-types:
+    - type: CEM5826M11
+      device: MindMotion::MM32L0136C7P
+      optimize: debug
+  projects:
+    - project: CEM5826-M11.cproject.yml
