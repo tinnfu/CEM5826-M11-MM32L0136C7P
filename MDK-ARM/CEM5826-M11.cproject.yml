@@ -61,19 +61,14 @@ project:
         - file: ../platform.c
         - file: ../slcd.c
         - file: ../uart.c
+        - file: ../mm32l0130_it.c
     - group: HAL_LIB
       files:
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_flash.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_lpuart.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_misc.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_rtc.c
         - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_slcd.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_syscfg.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_tim.c
         - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_uart.c
         - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_rcc.c
         - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_pwr.c
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
     - group: STARTUP
       files:
         - file: ../../Device/MM32L0130/Source/system_mm32l0130.c

@@ -409,11 +409,6 @@
               <FileType>1</FileType>
               <FilePath>..\mm32l0130_it.c</FilePath>
             </File>
-            <File>
-              <FileName>mm32l0130_it.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\mm32l0130_it.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -423,44 +418,9 @@
           <GroupName>HAL_LIB</GroupName>
           <Files>
             <File>
-              <FileName>hal_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_lpuart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_lpuart.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_misc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_misc.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_rtc.c</FilePath>
-            </File>
-            <File>
               <FileName>hal_slcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_slcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_syscfg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_syscfg.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_tim.c</FilePath>
             </File>
             <File>
               <FileName>hal_uart.c</FileName>
@@ -476,6 +436,11 @@
               <FileName>hal_pwr.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_gpio.c</FilePath>
             </File>
           </Files>
         </Group>

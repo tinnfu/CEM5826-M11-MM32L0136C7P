@@ -103,29 +103,19 @@ build:
           category: sourceC
         - file: ../uart.c
           category: sourceC
+        - file: ../mm32l0130_it.c
+          category: sourceC
     - group: HAL_LIB
       files:
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_flash.c
-          category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
-          category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_lpuart.c
-          category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_misc.c
-          category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_rtc.c
-          category: sourceC
         - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_slcd.c
-          category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_syscfg.c
-          category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_tim.c
           category: sourceC
         - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_uart.c
           category: sourceC
         - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_rcc.c
           category: sourceC
         - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_pwr.c
+          category: sourceC
+        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
           category: sourceC
     - group: STARTUP
       files:

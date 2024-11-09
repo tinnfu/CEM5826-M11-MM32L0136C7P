@@ -10,5 +10,6 @@ build-idx:
       configuration: +CEM5826M11
       messages:
         info:
+          - CEM5826-M11.cbuild-set.yml - file is already up-to-date
           - CEM5826-M11.cbuild-pack.yml - file is already up-to-date
-          - CEM5826-M11+CEM5826M11.cbuild.yml - file is already up-to-date
+          - CEM5826-M11+CEM5826M11.cbuild.yml - file generated successfully
