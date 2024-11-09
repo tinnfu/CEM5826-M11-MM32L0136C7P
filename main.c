@@ -6,9 +6,8 @@
 #define _MAIN_C_
 
 #include "platform.h"
-#include "uart_interrupt.h"
-#include "slcd_basic.h"
-#include "main.h"
+#include "uart.h"
+#include "slcd.h"
 
 #if !defined(HAVE_SNPRINTF)
 #define HAVE_SNPRINTF 1
@@ -24,7 +23,6 @@ typedef enum {
     BUF_RX_LAST_2,      // need last 2 char
     BUF_RX_LAST_1,      // need last 1 char
     BUF_RX_COMPLETE,    // message complete
-    BUF_RX_ABORT        // rx message error, need reflush buffer
 } BufState;
 typedef struct {
     char data[32];
@@ -136,36 +134,39 @@ void process()
   *********************************************************************************************************************/
 void decode(uint8_t c)
 {
-    // v=**, str=**\r\n
     gBuf.data[gBuf.len++] = c;
-    if (gBuf.len == sizeof(gBuf.data)) {
-        gBuf.state = BUF_RX_ABORT;
-        goto end;
+
+    // v=**, str=**\r\n\r
+    switch (gBuf.state) {
+        case BUF_RX_AGAIN:
+            if (c == '\r') {
+                gBuf.state = BUF_RX_LAST_2;
+            }
+            break;
+        case BUF_RX_LAST_2:
+            if (c == '\n') {
+                gBuf.state = BUF_RX_LAST_1;
+            } else {
+                gBuf.state = BUF_RX_AGAIN;
+            }
+            break;
+        case BUF_RX_LAST_1:
+            if (c == '\r') {
+                gBuf.state = BUF_RX_COMPLETE;
+            } else {
+                gBuf.state = BUF_RX_AGAIN;
+            }
+            break;
+        default:
+            break;
     }
 
-    if (c == '\r') {
-        if (gBuf.state == BUF_RX_LAST_1) {
-            gBuf.state = BUF_RX_COMPLETE;
-            goto end;
-        }
-        gBuf.state = BUF_RX_LAST_2;
-        goto end;
-    }
-
-    if (c == '\n' && gBuf.state == BUF_RX_LAST_2) {
-        gBuf.state = BUF_RX_LAST_1;
-        goto end;
-    }
-
-    gBuf.state = BUF_RX_AGAIN;
-
-end:
     if (gBuf.state == BUF_RX_COMPLETE) {
         PLATFORM_LED_Toggle(LED2);
         PLATFORM_DelayMS(300);
 
         process();
-    } else if (gBuf.state == BUF_RX_ABORT) {
+    } else if (gBuf.len == sizeof(gBuf.data)) {
         memset((void *)&gBuf, 0, sizeof(gBuf));
     }
 }

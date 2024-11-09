@@ -1,5 +1,0 @@
-cbuild-pack:
-  resolved-packs:
-    - resolved-pack: MindMotion::MM32L0130_DFP@1.1.2
-      selected-by-pack:
-        - MindMotion::MM32L0130_DFP
