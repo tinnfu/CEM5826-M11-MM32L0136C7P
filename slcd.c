@@ -658,64 +658,11 @@ void SLCD_Configure(void)
 
     SLCD_Cmd(ENABLE);
 
-    SLCD_Clear(1);
-    PLATFORM_DelayMS(1000);
+    // SLCD_Clear(1);
+    // PLATFORM_DelayMS(1000);
     SLCD_Clear(0);
 
     SLCD_ConfigureBlinkEN();
-}
-
-/***********************************************************************************************************************
-  * @brief
-  * @note   none
-  * @param  none
-  * @retval none
-  *********************************************************************************************************************/
-void SLCD_Basic_Sample(void)
-{
-    static uint32_t Number1  = 0;
-    static uint32_t Number2  = 0;
-    static uint32_t Counter  = 0;
-    char   Buffer[10];
-    uint8_t i = 0;
-
-    printf("\r\nTest %s", __FUNCTION__);
-
-    SLCD_Configure();
-
-    while (1)
-    {
-        Number2 = (Number2 + 1) % 1000000;
-
-        sprintf(Buffer, "%d", Number2);
-
-        for (i = 0; i < strlen(Buffer); i++)
-        {
-            SLCD_DisplayNumber2(6 - strlen(Buffer) + i, Buffer[i], 0);
-        }
-
-        Counter++;
-
-        if ((Counter % 3) == 0)
-        {
-            SLCD_DisplayTool();
-        }
-
-        if ((Counter % 10) == 0)
-        {
-            Number1 = (Number1 + 1) % 10000;
-
-            sprintf(Buffer, "%d", Number1);
-
-            for (i = 0; i < strlen(Buffer); i++)
-            {
-                SLCD_DisplayNumber1(4 - strlen(Buffer) + i, Buffer[i], 0);
-            }
-        }
-
-        PLATFORM_LED_Toggle(LED1);
-        PLATFORM_DelayMS(100);
-    }
 }
 
 /**
