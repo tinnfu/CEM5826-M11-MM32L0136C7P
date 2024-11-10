@@ -152,18 +152,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>182</LineNumber>
+          <LineNumber>257</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134226664</Address>
+          <Address>134223608</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\main.c</Filename>
+          <Filename>..\slcd.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\CEM5826_M11\../main.c\182</Expression>
+          <Expression>\\CEM5826_M11\../slcd.c\257</Expression>
         </Bp>
       </Breakpoint>
       <Tracepoint>
@@ -300,8 +300,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Device\MM32L0130\HAL_Lib\Src\hal_slcd.c</PathWithFileName>
-      <FilenameWithoutPath>hal_slcd.c</FilenameWithoutPath>
+      <PathWithFileName>..\Device\MM32L0130\HAL_Lib\Src\hal_gpio.c</PathWithFileName>
+      <FilenameWithoutPath>hal_gpio.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -312,8 +312,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Device\MM32L0130\HAL_Lib\Src\hal_uart.c</PathWithFileName>
-      <FilenameWithoutPath>hal_uart.c</FilenameWithoutPath>
+      <PathWithFileName>..\Device\MM32L0130\HAL_Lib\Src\hal_pwr.c</PathWithFileName>
+      <FilenameWithoutPath>hal_pwr.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -324,7 +324,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Device\MM32L0130\HAL_Lib\Src\hal_rcc.c</PathWithFileName>
+      <PathWithFileName>..\Device\MM32L0130\HAL_Lib\Src\hal_rcc.c</PathWithFileName>
       <FilenameWithoutPath>hal_rcc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -336,8 +336,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Device\MM32L0130\HAL_Lib\Src\hal_pwr.c</PathWithFileName>
-      <FilenameWithoutPath>hal_pwr.c</FilenameWithoutPath>
+      <PathWithFileName>..\Device\MM32L0130\HAL_Lib\Src\hal_slcd.c</PathWithFileName>
+      <FilenameWithoutPath>hal_slcd.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -348,8 +348,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Device\MM32L0130\HAL_Lib\Src\hal_gpio.c</PathWithFileName>
-      <FilenameWithoutPath>hal_gpio.c</FilenameWithoutPath>
+      <PathWithFileName>..\Device\MM32L0130\HAL_Lib\Src\hal_uart.c</PathWithFileName>
+      <FilenameWithoutPath>hal_uart.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -357,7 +357,7 @@
 
   <Group>
     <GroupName>STARTUP</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -368,7 +368,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Device\MM32L0130\Source\system_mm32l0130.c</PathWithFileName>
+      <PathWithFileName>..\Device\MM32L0130\Source\system_mm32l0130.c</PathWithFileName>
       <FilenameWithoutPath>system_mm32l0130.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -380,7 +380,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Device\MM32L0130\Source\KEIL_StartAsm\startup_mm32l0130_keil.s</PathWithFileName>
+      <PathWithFileName>..\Device\MM32L0130\Source\KEIL_StartAsm\startup_mm32l0130_keil.s</PathWithFileName>
       <FilenameWithoutPath>startup_mm32l0130_keil.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

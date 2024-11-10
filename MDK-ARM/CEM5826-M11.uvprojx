@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\CEM5826-M11;..\..\Device\CMSIS\Core\Include;..\..\Device\MM32L0130\HAL_Lib\Inc;..\..\Device\MM32L0130\Include</IncludePath>
+              <IncludePath>..\..\CEM5826-M11;..\Device\CMSIS\Core\Include;..\Device\MM32L0130\HAL_Lib\Inc;..\Device\MM32L0130\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -418,29 +418,29 @@
           <GroupName>HAL_LIB</GroupName>
           <Files>
             <File>
-              <FileName>hal_slcd.c</FileName>
+              <FileName>hal_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_slcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_uart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_uart.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_rcc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_rcc.c</FilePath>
+              <FilePath>..\Device\MM32L0130\HAL_Lib\Src\hal_gpio.c</FilePath>
             </File>
             <File>
               <FileName>hal_pwr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_pwr.c</FilePath>
+              <FilePath>..\Device\MM32L0130\HAL_Lib\Src\hal_pwr.c</FilePath>
             </File>
             <File>
-              <FileName>hal_gpio.c</FileName>
+              <FileName>hal_rcc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\HAL_Lib\Src\hal_gpio.c</FilePath>
+              <FilePath>..\Device\MM32L0130\HAL_Lib\Src\hal_rcc.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_slcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\MM32L0130\HAL_Lib\Src\hal_slcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\MM32L0130\HAL_Lib\Src\hal_uart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -450,12 +450,12 @@
             <File>
               <FileName>system_mm32l0130.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Device\MM32L0130\Source\system_mm32l0130.c</FilePath>
+              <FilePath>..\Device\MM32L0130\Source\system_mm32l0130.c</FilePath>
             </File>
             <File>
               <FileName>startup_mm32l0130_keil.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\Device\MM32L0130\Source\KEIL_StartAsm\startup_mm32l0130_keil.s</FilePath>
+              <FilePath>..\Device\MM32L0130\Source\KEIL_StartAsm\startup_mm32l0130_keil.s</FilePath>
             </File>
           </Files>
         </Group>

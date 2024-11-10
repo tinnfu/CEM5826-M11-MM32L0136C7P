@@ -1,5 +1,24 @@
 {
     "clangd.arguments": [
         "--compile-commands-dir=c:\\Users\\caft\\Desktop\\mm32\\test\\CEM5826-M11\\MDK-ARM\\out\\CEM5826-M11\\CEM5826M11"
+    ],
+    "cmsis-csolution.actions": [
+        {
+            "path": "CEM5826-M11.csolution.yml",
+            "target": "CEM5826M11",
+            "config": {
+                "run": "Flash Device",
+                "debug": "Arm Debugger"
+            },
+            "projects": [
+                {
+                    "path": "CEM5826-M11.cproject.yml",
+                    "config": {
+                        "run": "Flash Device",
+                        "debug": "Arm Debugger"
+                    }
+                }
+            ]
+        }
     ]
 }
