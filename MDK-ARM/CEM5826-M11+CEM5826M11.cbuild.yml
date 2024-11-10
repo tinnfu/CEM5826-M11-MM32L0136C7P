@@ -77,9 +77,9 @@ build:
     - MM32L0136C7P
   add-path:
     - ..
-    - ../../Device/CMSIS/Core/Include
-    - ../../Device/MM32L0130/HAL_Lib/Inc
-    - ../../Device/MM32L0130/Include
+    - ../Device/CMSIS/Core/Include
+    - ../Device/MM32L0130/HAL_Lib/Inc
+    - ../Device/MM32L0130/Include
     - ${CMSIS_PACK_ROOT}/MindMotion/MM32L0130_DFP/1.1.2/Device/MM32L0130
   add-path-asm:
     - ${CMSIS_PACK_ROOT}/MindMotion/MM32L0130_DFP/1.1.2/Device/MM32L0130
@@ -107,21 +107,21 @@ build:
           category: sourceC
     - group: HAL_LIB
       files:
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_slcd.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
           category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_uart.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_pwr.c
           category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_rcc.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_rcc.c
           category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_pwr.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_slcd.c
           category: sourceC
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_uart.c
           category: sourceC
     - group: STARTUP
       files:
-        - file: ../../Device/MM32L0130/Source/system_mm32l0130.c
+        - file: ../Device/MM32L0130/Source/system_mm32l0130.c
           category: sourceC
-        - file: ../../Device/MM32L0130/Source/KEIL_StartAsm/startup_mm32l0130_keil.s
+        - file: ../Device/MM32L0130/Source/KEIL_StartAsm/startup_mm32l0130_keil.s
           category: sourceAsm
           misc:
             ASM:

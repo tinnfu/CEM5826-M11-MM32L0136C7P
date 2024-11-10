@@ -5,9 +5,9 @@ project:
     - setup: Options for CEM5826M11
       add-path:
         - ..
-        - ../../Device/CMSIS/Core/Include
-        - ../../Device/MM32L0130/HAL_Lib/Inc
-        - ../../Device/MM32L0130/Include
+        - ../Device/CMSIS/Core/Include
+        - ../Device/MM32L0130/HAL_Lib/Inc
+        - ../Device/MM32L0130/Include
       debug: "on"
       define:
         - USE_STDPERIPH_DRIVER
@@ -64,15 +64,15 @@ project:
         - file: ../mm32l0130_it.c
     - group: HAL_LIB
       files:
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_slcd.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_uart.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_rcc.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_pwr.c
-        - file: ../../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_gpio.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_pwr.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_rcc.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_slcd.c
+        - file: ../Device/MM32L0130/HAL_Lib/Src/hal_uart.c
     - group: STARTUP
       files:
-        - file: ../../Device/MM32L0130/Source/system_mm32l0130.c
-        - file: ../../Device/MM32L0130/Source/KEIL_StartAsm/startup_mm32l0130_keil.s
+        - file: ../Device/MM32L0130/Source/system_mm32l0130.c
+        - file: ../Device/MM32L0130/Source/KEIL_StartAsm/startup_mm32l0130_keil.s
           misc:
             - ASM:
                 - -masm=auto
