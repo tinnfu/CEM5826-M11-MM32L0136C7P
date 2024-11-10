@@ -163,9 +163,8 @@ void decode(uint8_t c)
 
     if (gBuf.state == BUF_RX_COMPLETE) {
         PLATFORM_LED_Toggle(LED2);
-        PLATFORM_DelayMS(300);
-
         process();
+        PLATFORM_DelayMS(300);
     } else if (gBuf.len == sizeof(gBuf.data)) {
         memset((void *)&gBuf, 0, sizeof(gBuf));
     }
